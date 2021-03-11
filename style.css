@@ -1,170 +1,142 @@
-/*custom font*/
-@import url(https://fonts.googleapis.com/css?family=Montserrat);
+@import url('https://fonts.googleapis.com/css2?family=Montserrat');
 
-/*basic reset*/
-* {
-    margin: 0;
-    padding: 0;
+*{
+	margin: 0;
+	padding: 0;
+}
+html{
+	height: 100%;
 }
 
-html {
-    height: 100%;
-   
-     /* Chrome 10-25, Safari 5.1-6 */
+body{
+	font-family: 'montserrat',arial,verdana;
+	background: url('https://images.pexels.com/photos/325185/pexels-photo-325185.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
+	overflow-x: hidden;
 }
 
-body {
-    font-family: montserrat, arial, verdana;
-    background: url("https://images.pexels.com/photos/325185/pexels-photo-325185.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-    overflow-x: hidden;
+#form{
+	text-align: center;
+	position: relative;
+	margin: 100px;
+}
+#form fieldset{
+	background: #fff;
+	box-shadow: 0 0 20px 0 rgba(0,0,0,0.4);
+	padding: 25px 30px;
+	box-sizing: border-box;
+	width: 80%;
+	margin: 0 10%;
+
+	position: relative;
 }
 
-/*form styles*/
-#form {
-    text-align: center;
-    position: relative;
-    margin: 100px;
+#form fieldset:not(:first-of-type){
+	display: none;
 }
 
-#form fieldset {
-    background: white;
-    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
-    padding: 20px 30px;
-    box-sizing: border-box;
-    width: 80%;
-    margin: 0 10%;
-
-    /*stacking fieldsets above each other*/
-    position: relative;
+#form input,#form textarea{
+	padding: 18px;
+	border: 1px solid grey;
+	margin-bottom: 12px;
+	width: 100%;
+	box-sizing: border-box;
+	color: #ccc;
+	font-size: 12px;
+	font-weight: 2px;
 }
 
-/*Hide all except first fieldset*/
-#form fieldset:not(:first-of-type) {
-    display: none;
+#form input:focus,#form textarea:focus{
+	box-shadow: none;
+	border: 1px solid #00ffe0;
+	transition: 0.5s ease-in;
 }
 
-/*inputs*/
-#form input, #form textarea {
-    padding: 15px;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-    width: 100%;
-    box-sizing: border-box;
-    color: #2C3E50;
-    font-size: 13px;
+#form .action-button{
+	width: 100px;
+	background: #440a67;
+	font-weight: bold;
+	color: white;
+	border-radius: 28px;
+	cursor: pointer;
+	padding: 12px 7px;
+	margin: 12px 7px;
 }
 
-#form input:focus, #form textarea:focus {
-    -moz-box-shadow: none !important;
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
-    border: 1px solid #ee0979;
-    transition: All 0.5s ease-in;
-    -webkit-transition: All 0.5s ease-in;
-    -moz-transition: All 0.5s ease-in;
-    -o-transition: All 0.5s ease-in;
+#form .action-button:hover,#form .action-button:focus{
+	box-shadow: 0 0 0 2px white,0 0 0 4px #440a67;
 }
 
-/*buttons*/
-#form .action-button {
-    width: 100px;
-    background: #440a67;
-    font-weight: bold;
-    color: white;
-    border-radius: 25px;
-    cursor: pointer;
-    padding: 10px 5px;
-    margin: 10px 5px;
+#form .action-button-previous{
+	width: 100px;
+	background: #C5C5F1;
+	font-weight: bold;
+	color: white;
+	border-radius: 28px;
+	cursor: pointer;
+	padding: 12px 7px;
+	margin: 12px 7px;
 }
 
-#form .action-button:hover, #form .action-button:focus {
-    box-shadow: 0 0 0 2px white, 0 0 0 3px #440a67;
-}
-
-#form .action-button-previous {
-    width: 100px;
-    background: #C5C5F1;
-    font-weight: bold;
-    color: white;
-    border-radius: 25px;
-    cursor: pointer;
-    padding: 10px 5px;
-    margin: 10px 5px;
-}
-
-#form .action-button-previous:hover, #form .action-button-previous:focus {
-    box-shadow: 0 0 0 2px white, 0 0 0 3px #C5C5F1;
-}
-
-/*headings*/
-.title {
-    font-size: 18px;
-    text-transform: uppercase;
-    color: #2C3E50;
-    margin-bottom: 10px;
-    letter-spacing: 2px;
-    font-weight: bold;
-}
-
-.subtitle {
-    font-weight: normal;
-    font-size: 13px;
-    color: #666;
-    margin-bottom: 20px;
-}
-
-/*progressbar*/
-#progressbar {
-    margin-bottom: 30px;
-    overflow: hidden;
-    /*CSS counters to number the steps*/
-    counter-reset: step;
-}
-
-#progressbar li {
-    list-style-type: none;
-    color: white;
-    text-transform: uppercase;
-    font-size: 9px;
-    width: 33.33%;
-    float: left;
-    position: relative;
-    letter-spacing: 1px;
-}
-
-#progressbar li:before {
-    content: counter(step);
-    counter-increment: step;
-    width: 24px;
-    height: 24px;
-    line-height: 26px;
-    display: block;
-    font-size: 12px;
-    color: #333;
-    background: white;
-    border-radius: 25px;
-    margin: 0 auto 10px auto;
-}
-
-/*progressbar connectors*/
-#progressbar li:after {
-    content: '';
-    width: 100%;
-    height: 2px;
-    background: #fff;
-    position: absolute;
-    left: -50%;
-    top: 9px;
-    z-index: -1; /*put it behind the numbers*/
-}
-
-#progressbar li:first-child:after {
-    content: none;
-}
-
-#progressbar li.active:before, #progressbar li.active:after {
-    background: #fff600;
-    color: white;
+#form .action-button-previous:hover,#form .action-button-previous:focus{
+	box-shadow: 0 0 0 2px white,0 0 0 4px #C5C5F1;
 }
 
 
+.title{
+	font-size: 18px;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+	letter-spacing: 3px;
+	font-weight: bold;
+}
+
+#progressbar{
+	margin-bottom: 30px;
+	overflow: hidden;
+	counter-reset: step;
+}
+
+#progressbar li{
+	list-style-type: none;
+	color: white;
+	text-transform: uppercase;
+	font-size: 9px;
+	width: 33.33%;
+	float: left;
+	position: relative;
+	letter-spacing: 3px;
+}
+
+#progressbar li:before{
+	content: counter(step);
+	counter-increment: step;
+	width: 24px;
+	height: 24px;
+	line-height: 26px;
+	display: block;
+	font-size: 12px;
+	color: #333;
+	background: white;
+	border-radius: 25px;
+	margin: 0 auto 10px auto;
+}
+
+#progressbar li:after{
+	content: '';
+	width: 100%;
+	height: 2px;
+	background: white;
+	position: absolute;
+	left: -50%;
+	top: 9px;
+	z-index: -1;
+}
+
+#progressbar li:first-child:after{
+	content: none;
+}
+
+#progressbar li.active:before,#progressbar li.active:after{
+	background: #fff600;
+	color: white;
+}
